@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaky Cauldron — Powered by House-Elfe Labor & HTML</title>
   <style>
+    /* Universal reset for margins, paddings, and box-sizing */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* Main body setup with background image, tint overlay, and system fonts */
     body {
       font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
       min-height: 100vh;
@@ -25,6 +27,7 @@
       color: #3b2b1e;
     }
 
+    /* Top navigation header bar styling */
     header {
       background-color: #1a100a;
       color: #dfc29f;
@@ -35,6 +38,7 @@
       border-bottom: 2px solid #5a3d28;
     }
 
+    /* Brand/Logo text styling */
     .brand-title {
       font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
       font-size: 20px;
@@ -44,11 +48,13 @@
       text-shadow: 0 0 8px rgba(243, 229, 200, 0.4);
     }
 
+    /* Navigation links container */
     nav {
       display: flex;
       gap: 25px;
     }
 
+    /* Individual navigation tab links */
     nav a {
       color: #bfa181;
       text-decoration: none;
@@ -59,11 +65,13 @@
       font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     }
 
+    /* Active and hover states for nav links */
     nav a:hover, nav a.active {
       color: #f3e5c8;
       text-shadow: 0 0 6px rgba(243, 229, 200, 0.6);
     }
 
+    /* Main content layout wrapper */
     .main-content {
       flex: 1;
       display: flex;
@@ -72,6 +80,7 @@
       padding: 30px 20px;
     }
 
+    /* Parchment-style container card */
     .container {
       background: #fcf8f2;
       background-image: linear-gradient(to bottom, #fcf8f2, #f4ecd8);
@@ -83,14 +92,17 @@
       border: 2px solid #8c6747;
     }
 
+    /* Hide inactive page sections */
     .page-section {
       display: none;
     }
 
+    /* Display active page section */
     .page-section.active {
       display: block;
     }
 
+    /* Gradient header box inside cards */
     .card-header-gradient {
       background: linear-gradient(135deg, #3d2616, #5a3d28, #26160d);
       color: #f3e5c8;
@@ -102,6 +114,7 @@
       border: 1px solid #a67c52;
     }
 
+    /* Card title styling */
     .card-header-gradient h1 {
       font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
       font-size: 21px;
@@ -112,6 +125,7 @@
       color: #f8e8cd;
     }
 
+    /* Card subtitle styling */
     .card-header-gradient h2 {
       font-family: Georgia, serif;
       font-style: italic;
@@ -120,10 +134,12 @@
       color: #d4b895;
     }
 
+    /* Form input group container */
     .form-group {
       margin-bottom: 18px;
     }
 
+    /* Form labels */
     .form-group label {
       display: block;
       font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
@@ -134,6 +150,7 @@
       letter-spacing: 0.5px;
     }
 
+    /* Form control input and select fields */
     .form-control {
       width: 100%;
       padding: 12px 14px;
@@ -147,12 +164,14 @@
       font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     }
 
+    /* Focus state for form inputs */
     .form-control:focus {
       border-color: #5a3d28;
       box-shadow: 0 0 6px rgba(90, 61, 40, 0.3);
       background: #fff;
     }
 
+    /* Menu item list container */
     .menu-list {
       display: flex;
       flex-direction: column;
@@ -160,6 +179,7 @@
       margin-bottom: 20px;
     }
 
+    /* Individual menu item row */
     .menu-item {
       display: flex;
       align-items: center;
@@ -171,17 +191,20 @@
       transition: all 0.2s ease;
     }
 
+    /* Hover effect for menu items */
     .menu-item:hover {
       background: #f7f1e3;
       border-color: #b89670;
     }
 
+    /* Menu item name and price text block */
     .item-info {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
+    /* Menu item name */
     .item-name {
       font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
       font-size: 15px;
@@ -189,18 +212,21 @@
       color: #3b2b1e;
     }
 
+    /* Menu item price */
     .item-price {
       font-size: 13px;
       font-weight: bold;
       color: #8c5d3b;
     }
 
+    /* Quantity modifier buttons container */
     .qty-controls {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
+    /* Plus/Minus quantity buttons */
     .qty-btn {
       width: 28px;
       height: 28px;
@@ -217,10 +243,12 @@
       transition: background 0.2s;
     }
 
+    /* Quantity button hover state */
     .qty-btn:hover {
       background: #3d2616;
     }
 
+    /* Number display for selected quantity */
     .qty-display {
       font-size: 15px;
       font-weight: bold;
@@ -229,6 +257,7 @@
       color: #3b2b1e;
     }
 
+    /* Primary action buttons */
     .btn-action {
       width: 100%;
       background: linear-gradient(135deg, #5a3d28, #3d2616);
@@ -245,15 +274,18 @@
       box-shadow: 0 4px 12px rgba(61, 38, 22, 0.4);
     }
 
+    /* Action button hover state */
     .btn-action:hover {
       background: linear-gradient(135deg, #6e4c33, #4a301d);
       box-shadow: 0 6px 15px rgba(61, 38, 22, 0.6);
     }
 
+    /* Action button active click state */
     .btn-action:active {
       transform: scale(0.98);
     }
 
+    /* Output text display box */
     .output-box {
       margin-top: 20px;
       padding: 15px;
@@ -269,10 +301,12 @@
       text-align: center;
     }
 
+    /* Left-align text modifier for receipt output */
     .output-box.left-align {
       text-align: left;
     }
 
+    /* Footer bar styling */
     footer {
       background-color: #1a100a;
       color: #bfa181;
@@ -286,6 +320,7 @@
 </head>
 <body>
 
+  <!-- Top Header with Brand Title and Navigation Tabs -->
   <header>
     <div class="brand-title">The Leaky Cauldron — Powered by House-Elfe Labor & HTML</div>
     <nav>
@@ -294,29 +329,33 @@
     </nav>
   </header>
 
+  <!-- Main Application Content Wrapper -->
   <div class="main-content">
     <div class="container">
 
+      <!-- Receipt Generator Section -->
       <div id="receiptSection" class="page-section active">
         <div class="card-header-gradient">
           <h1>The Leaky Cauldron</h1>
           <h2>Wizarding Pub & Tavern</h2>
         </div>
 
-        <div class="menu-list" id="menuList">
-        </div>
+        <!-- Dynamically populated menu list container -->
+        <div class="menu-list" id="menuList"></div>
 
         <button type="button" class="btn-action" onclick="generateOrderReceipt()">Create Order</button>
 
         <div class="output-box left-align" id="receiptOutput">Select items and click "Create Order".</div>
       </div>
 
+      <!-- SKU Generator Section -->
       <div id="skuSection" class="page-section">
         <div class="card-header-gradient">
           <h1>SKU Generator</h1>
           <h2>The Leaky Cauldron Tavern Vaults</h2>
         </div>
 
+        <!-- Category Dropdown Input -->
         <div class="form-group">
           <label for="skuCategory">Category</label>
           <select id="skuCategory" class="form-control">
@@ -327,11 +366,13 @@
           </select>
         </div>
 
+        <!-- Product Name Text Input -->
         <div class="form-group">
           <label for="skuProductName">Product Name</label>
           <input type="text" id="skuProductName" class="form-control" placeholder="e.g. Butterbeer Mug">
         </div>
 
+        <!-- Stock Quantity Number Input -->
         <div class="form-group">
           <label for="skuStockQuantity">Stock Quantity</label>
           <input type="number" id="skuStockQuantity" class="form-control" placeholder="e.g. 50">
@@ -345,11 +386,13 @@
     </div>
   </div>
 
+  <!-- Footer Information -->
   <footer>
     Receipt & SKU Generator — 1st Quarter Project | De Vera, A.L.
   </footer>
 
   <script>
+    /* Function to switch between the Receipt and SKU generator tabs */
     function switchTab(tabName) {
       const skuSec = document.getElementById('skuSection');
       const recSec = document.getElementById('receiptSection');
@@ -369,26 +412,31 @@
       }
     }
 
+    /* Function to generate an encoded SKU using Category, Product Name, and Stock */
     function generateSKUCode() {
       const category = document.getElementById('skuCategory').value;
       const productName = document.getElementById('skuProductName').value.trim();
       const stock = document.getElementById('skuStockQuantity').value;
       const outputBox = document.getElementById('skuOutput');
 
+      // Validation check to ensure fields are filled
       if (!productName || !stock) {
         outputBox.innerText = "Please fill in all SKU fields.";
         return;
       }
 
-      // Encode Category, Product Name abbreviation, and Stock Quantity directly into the SKU
+      // Format category abbreviation (first 3 letters)
       const catCode = category.substring(0, 3).toUpperCase();
+      // Format product abbreviation (first 3 letters of product name)
       const prodCode = productName.replace(/\s+/g, '').substring(0, 3).toUpperCase().padEnd(3, 'X');
+      // Construct final unique SKU code string encoding all values
       const skuCode = `SKU-${catCode}-${prodCode}-QTY${stock}`;
 
       const skuResult = `${skuCode}\nProduct: ${productName}\nAvailable Stock: ${stock} units`;
       outputBox.innerText = skuResult;
     }
 
+    /* Array of available tavern menu items with ID, Name, and Price */
     const menuItems = [
       { id: 1, name: "Butterbeer", price: 150 },
       { id: 2, name: "Firewhisky", price: 220 },
@@ -397,6 +445,7 @@
       { id: 5, name: "Bangers & Mash", price: 250 }
     ];
 
+    /* Function to dynamically render menu items into the DOM */
     function renderMenu() {
       const menuListContainer = document.getElementById('menuList');
       menuListContainer.innerHTML = "";
@@ -419,23 +468,28 @@
       });
     }
 
+    /* Object tracker for order quantities per item ID */
     const orderQuantities = {};
     menuItems.forEach(item => { orderQuantities[item.id] = 0; });
 
+    /* Function to update item quantity based on user interaction */
     function updateQty(itemId, change) {
       orderQuantities[itemId] = Math.max(0, orderQuantities[itemId] + change);
       document.getElementById(`qty-${itemId}`).innerText = orderQuantities[itemId];
     }
 
+    /* Function to generate a formatted receipt based on selected quantities */
     function generateOrderReceipt() {
       let receiptText = "";
       let total = 0;
       let hasItems = false;
 
+      // Generate random order tracking SKU
       const orderSku = `SKU-WIZ-ORD-${Math.floor(10000 + Math.random() * 90000)}`;
       receiptText += `Order SKU: ${orderSku}\n`;
       receiptText += `===============================\n`;
 
+      // Loop through menu items and calculate totals if ordered
       menuItems.forEach(item => {
         const qty = orderQuantities[item.id];
         if (qty > 0) {
@@ -446,6 +500,7 @@
         }
       });
 
+      // Validation check if no items were selected
       if (!hasItems) {
         document.getElementById('receiptOutput').innerText = "No items selected. Please add quantities to your order.";
         return;
@@ -458,6 +513,7 @@
       document.getElementById('receiptOutput').innerText = receiptText;
     }
 
+    // Initialize menu rendering when window loads
     window.onload = renderMenu;
   </script>
 
